@@ -4,7 +4,7 @@ function DropBoxHeader(props){
 
     const itemsStyle = "text-center px-2 hover:bg-slate-500 cursor-pointer rounded-lg mb-1";
     return(
-        <div className="absolute top-12 right-3 my-transparent rounded-lg">
+        <div className="absolute top-12 right-0 my-transparent rounded-lg">
             <ul>
                 <li className="flex justify-end"> 
                     <div className="w-6 text-center mr-3 hover:bg-slate-400 cursor-pointer font-bold"
