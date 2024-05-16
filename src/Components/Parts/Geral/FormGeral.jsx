@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function FormGeral(){
     const [email, setEmail] = useState("");
@@ -38,7 +39,7 @@ function FormGeral(){
                 </div>
 
                 <p className="text-sm hover:underline hover:cursor-pointer ml-20 mt-6">Esqueceu sua senha?</p>
-
+                <Link className="text-sm hover:underline hover:cursor-pointer ml-20 mt-6" to="/cadastro">Clique aqui para se cadastrar</Link>
                 <div className="w-full text-right p-1 flex justify-center my-6">
                     <button className="w-3/4 text-4xl hover:bg-slate-600 transition duration-200 pb-2" 
                     onClick={()=> console.log("ENTROU NO SUBMIT")}>→</button>
