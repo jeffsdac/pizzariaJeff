@@ -1,6 +1,6 @@
 # Projeto Jeff Pizzas
 
-Essa é a parte de frontEnd desenvolvida em React + Vite do projeto JeffPizzas, esse projeto é um projeto para portfólio que busca desenvolver uma solução para uma pequena pizzaria local da cidade, com um sistema onde os clientes possam comrpar os produtos através desse site.
+Essa é a parte de frontEnd desenvolvida em React + Vite do projeto JeffPizzas, esse projeto é um projeto para portfólio que busca desenvolver uma solução para uma pequena pizzaria local da cidade, com um sistema onde os clientes possam comprar os produtos através desse site.
 
 ## Como rodar o projeto?
 - Você precisa do Node.js instalado no seu sistema, basta fazer o download em: https://nodejs.org/en
