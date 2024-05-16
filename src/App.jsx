@@ -19,7 +19,7 @@ function App() {
 
   return (
         <BrowserRouter>
-          <div className="bg-slate-900 flex items-center justify-center flex-col">
+          <div className="bg-zinc-900 flex items-center justify-center flex-col">
           <Header page={pageAtiva} mudarPage={mudarPage}/>
           <Routes>
             <Route path='/' element={<Home/>}/> 

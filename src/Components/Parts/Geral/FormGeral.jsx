@@ -4,7 +4,7 @@ function FormGeral(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
     return(
-        <form className="p-2 rounded-md shadow-md bg-slate-800 sm:w-full m-2 lg:w-1/2">
+        <form className="p-2 rounded-md shadow-md bg-zinc-800 sm:w-full m-2 lg:w-1/2">
                 <h1 className="text-3xl font-bold text-center mb-6 mt-6">FAÇA O SEU LOGIN</h1>
 
                 <div className="flex flex-wrap mb-2 justify-center">
@@ -15,7 +15,7 @@ function FormGeral(){
 
 
                     
-                    <input type="email" className="p-1 w-3/4 bg-slate-800 rounded-none border-b-white border-b focus:outline-none mx-3"
+                    <input type="email" className="p-1 w-3/4 bg-zinc-800 rounded-none border-b-white border-b focus:outline-none mx-3"
                     placeholder="Email"
                     value={email}
                     onChange={(input)=> setEmail(input.target.value)}>
@@ -31,7 +31,7 @@ function FormGeral(){
                     </svg>
 
                     <input type="password" 
-                    className="p-1 w-3/4 bg-slate-800 rounded-none border-b-white border-b focus:outline-none mx-3"
+                    className="p-1 w-3/4 bg-zinc-800 rounded-none border-b-white border-b focus:outline-none mx-3"
                     placeholder="Password"
                     value={password}
                     onChange={input => setPassword(input.target.value)}></input>

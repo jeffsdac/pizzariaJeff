@@ -41,7 +41,7 @@ function Header (props){
                 </ul>
 
                 <div className="md:invisible absolute top-2 left-7 h-10 w-10 cursor-pointer"
-                onClick={()=> setDropMenu(true)}>
+                onClick={()=> setDropMenu(true)}> 
                     <div className="w-full h-1 mb-2 bg-yellow-200"></div>
                     <div className="w-full h-1 mb-2 bg-yellow-200"></div>
                     <div className="w-full h-1 mb-2 bg-yellow-200"></div>
