@@ -1,8 +1,16 @@
-# React + Vite
+# Projeto Jeff Pizzas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Essa é a parte de frontEnd desenvolvida em React + Vite do projeto JeffPizzas, esse projeto é um projeto para portfólio que busca desenvolver uma solução para uma pequena pizzaria local da cidade, com um sistema onde os clientes possam comprar os produtos através desse site.
 
-Currently, two official plugins are available:
+## Como rodar o projeto?
+- Você precisa do Node.js instalado no seu sistema, basta fazer o download em: https://nodejs.org/en
+- Clone o repositório em algum dos seus diretórios, segue abaixo a ordem dos comandos para fazer isso através Bash ou PowerShell
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone https://github.com/jeffsdac/pizzariaJeff.git
+cd pizzariaJeff
+npm install
+npm run dev
+
+```
+- Após isso, um link será exibido basta copiar o link em seu navegador e o site do projeto já vai estar executando localmente
