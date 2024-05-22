@@ -25,15 +25,15 @@ function Header (props){
         <div className="w-full bg-lime-700 fixed top-0">
             <nav className="flex justify-center h-12 w-full items-center">
                 <ul className="flex sm:invisible md:visible">
-                    <NavLink to="/"
+                    <NavLink to="/pizzariaJeff"
                     className={props.page == "/" ? active : noActive}
                     onClick={()=> props.mudarPage("/")}>HOME</NavLink>
 
-                    <NavLink to="/pedidos"
+                    <NavLink to="/pizzariaJeff/pedidos"
                     className={props.page == "/pedidos" ? active : noActive}
                     onClick={()=> props.mudarPage("/pedidos")}>PEDIDO</NavLink>
 
-                    <NavLink to="/checar"
+                    <NavLink to="/pizzariaJeff/checar"
                     className={props.page == "/checar" ? active : noActive}
                     onClick={()=> props.mudarPage("/checar")}>CONTA</NavLink>
                     

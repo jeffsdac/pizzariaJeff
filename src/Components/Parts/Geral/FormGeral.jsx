@@ -58,7 +58,7 @@ function FormGeral(){
                 </div>
 
                 <p className="text-sm hover:underline hover:cursor-pointer ml-20 mt-6">Esqueceu sua senha?</p>
-                <Link className="text-sm hover:underline hover:cursor-pointer ml-20 mt-6" to="/cadastro">Clique aqui para se cadastrar</Link>
+                <Link className="text-sm hover:underline hover:cursor-pointer ml-20 mt-6" to="/pizzariaJeff/cadastro">Clique aqui para se cadastrar</Link>
                 <div className="w-full text-right p-1 flex justify-center my-6">
                     <div className="w-3/4 text-4xl hover:bg-slate-600 transition duration-200 pb-2 text-center cursor-pointer" 
                     onClick={()=> pegarUser()}>→</div>

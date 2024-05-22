@@ -23,10 +23,10 @@ function App() {
           <div className="bg-zinc-900 flex items-center justify-center flex-col">
           <Header page={pageAtiva} mudarPage={mudarPage}/>
           <Routes>
-            <Route path='/' element={<Home/>}/> 
-            <Route path='/checar' element={<ChecarPedidos/>}></Route>
-            <Route path='/pedidos' element={<FazerPedidos/>}></Route>
-            <Route path='/cadastro' element={<FormCadastro/>}></Route>
+            <Route path='/pizzariaJeff' element={<Home/>}/> 
+            <Route path='/pizzariaJeff/checar' element={<ChecarPedidos/>}></Route>
+            <Route path='/pizzariaJeff/pedidos' element={<FazerPedidos/>}></Route>
+            <Route path='/pizzariaJeff/cadastro' element={<FormCadastro/>}></Route>
           </Routes>
           <Footer/>
           </div>

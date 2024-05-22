@@ -12,9 +12,9 @@ function DropBoxMenu(props){
                 onClick={() => props.settar(false)}>
                 X</div>
             </li>
-            <li className={itemsStyle}><NavLink to="/">Home</NavLink></li>
-            <li className={itemsStyle}><NavLink to="/pedidos">Pedidos</NavLink></li>
-            <li className={itemsStyle}><NavLink to="/checar">Checar</NavLink></li>
+            <li className={itemsStyle}><NavLink to="/pizzariaJeff">Home</NavLink></li>
+            <li className={itemsStyle}><NavLink to="/pizzariaJeff/pedidos">Pedidos</NavLink></li>
+            <li className={itemsStyle}><NavLink to="/pizzariaJeff/checar">Checar</NavLink></li>
         </ul>
     </div>
     )
