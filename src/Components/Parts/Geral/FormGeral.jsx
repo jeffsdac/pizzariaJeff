@@ -1,9 +1,28 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import getUserByEmail from "../../../Services/UserService"
 
 function FormGeral(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
+    const objUsuario = { email:email, password:password};
+
+
+    const [isLogado, setIsLogado] = useState(false);
+    const [returnData, setReturnData] = useState("");
+    const [userLogado, setUserLogado] = useState({});
+
+    const pegarUser = () => {
+        getUserByEmail(objUsuario)
+         .then(retorno => {
+            setReturnData(retorno)
+            if(retorno.email == objUsuario.email){
+                setIsLogado(true);
+                setUserLogado(retorno);
+            };
+        })
+    }
+    
     return(
         <form className="p-2 rounded-md shadow-md bg-zinc-800 sm:w-full m-2 lg:w-1/2">
                 <h1 className="text-3xl font-bold text-center mb-6 mt-6">FAÇA O SEU LOGIN</h1>
@@ -41,9 +60,12 @@ function FormGeral(){
                 <p className="text-sm hover:underline hover:cursor-pointer ml-20 mt-6">Esqueceu sua senha?</p>
                 <Link className="text-sm hover:underline hover:cursor-pointer ml-20 mt-6" to="/cadastro">Clique aqui para se cadastrar</Link>
                 <div className="w-full text-right p-1 flex justify-center my-6">
-                    <button className="w-3/4 text-4xl hover:bg-slate-600 transition duration-200 pb-2" 
-                    onClick={()=> console.log("ENTROU NO SUBMIT")}>→</button>
+                    <div className="w-3/4 text-4xl hover:bg-slate-600 transition duration-200 pb-2 text-center cursor-pointer" 
+                    onClick={()=> pegarUser()}>→</div>
                 </div>
+                {
+                    isLogado && <p>BEM VINDO EMAIL: {userLogado.email}</p>
+                }
             </form>
     )
 }

@@ -6,12 +6,20 @@ const userObj = {
 
 const requestObj = {
     method:"POST",
-    body: JSON.stringify(userObj),
+    body: "",
     headers: {
         "Content-Type": "application/json",
-      }
+    }
 }
 
 
+const getUserByEmail = async (objUser) =>{
+    const url = `${BASE_URL}client/login`;
+    const request = requestObj;
+    request.body = JSON.stringify(objUser);
 
-const resposta = fetch(BASE_URL+"client/login", requestObj).then((resp)=> resp.json);
+    return fetch(url,request)
+     .then(response => response.json());
+}
+
+export default getUserByEmail;
