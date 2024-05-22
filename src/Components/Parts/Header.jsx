@@ -22,7 +22,7 @@ function Header (props){
 
     return(
 
-        <div className="w-full bg-lime-700 fixed top-0">
+        <div className="w-full bg-lime-700 fixed top-0 z-20">
             <nav className="flex justify-center h-12 w-full items-center">
                 <ul className="flex sm:invisible md:visible">
                     <NavLink to="/pizzariaJeff"
