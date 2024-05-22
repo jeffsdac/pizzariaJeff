@@ -1,8 +1,9 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function DropBoxMenu(props){
 
-    const itemsStyle = "text-center px-2 hover:bg-slate-500 cursor-pointer rounded-lg mb-1";
+    const itemsStyle = "text-center px-2 hover:bg-slate-500 cursor-pointer rounded-lg mb-1 p-2";
     return(
     <div className="absolute top-12 left-0 my-transparent rounded-lg">
         <ul>
@@ -11,9 +12,9 @@ function DropBoxMenu(props){
                 onClick={() => props.settar(false)}>
                 X</div>
             </li>
-            <li className={itemsStyle}>Ver perfil</li>
-            <li className={itemsStyle}>Ver pedidos em andamento</li>
-            <li className={itemsStyle}>Ver estatisticas</li>
+            <li className={itemsStyle}><NavLink to="/">Home</NavLink></li>
+            <li className={itemsStyle}><NavLink to="/pedidos">Pedidos</NavLink></li>
+            <li className={itemsStyle}><NavLink to="/checar">Checar</NavLink></li>
         </ul>
     </div>
     )

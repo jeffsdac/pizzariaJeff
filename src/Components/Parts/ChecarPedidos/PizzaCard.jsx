@@ -15,7 +15,7 @@ function PizzaCard(){
 
             <div className="w-2/3">
                 <p className="text-xl font-semibold text-center main-font text-yellow-100 ">PIZZA DE CALABRESA</p>
-                <p className="text-justify main-font text-yellow-100 text-sm font-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quisquam, sunt debitis nulla recusandae facere libero.</p>
+                <p className="text-justify main-font text-yellow-100 text-sm font-light sm:pr-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quisquam, sunt debitis nulla recusandae facere libero.</p>
                 <div className="w-full flex justify-end">
                 <div className="w-12 h-12 mr-3 hover:bg-zinc-600 transition delay-100 cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 my-stroke">
