@@ -15,16 +15,16 @@ function ChecarPedidos(){
                 <div className="w-1/4 text-center main-font mx-8">
                     <h2 className="text-2xl mb-2">Detalhes gerais</h2>
                     <p className="main-font">{userData.nome}</p>
-
-                        {
-                            userData.role = 'ADMIN' ? <p className="text-red-600 font-bold">ADMIN</p> : <p className="text-gree-600 font-bold">CLIENTE</p> 
-                        }
+                    {
+                        userData.role === "USER" ? <p className="text-green-600 font-bold">CLIENTE</p> : <p className="text-red-600 font-bold">ADMIN</p>
+                    }
                 </div>
 
                 <div className="w-1/4 text-center main-font mx-8">
                     <h2 className="text-2xl mb-2">Detalhes para contato</h2>
                     <p className="main-font">{userData.email}</p>
                     <p className="main-font">{userData.cel}</p>
+                    <p className="main-font">{userData.endereco}</p>
                 </div>
             </div>
 

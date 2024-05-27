@@ -1,9 +1,4 @@
 const BASE_URL = "http://localhost:8080/api/"
-const userObj = {
-    email:"JEF@JEF.COM.BR",
-    password:"PASSWORD"
-}
-
 const requestObj = {
     method:"POST",
     body: "",
@@ -11,15 +6,32 @@ const requestObj = {
         "Content-Type": "application/json",
     }
 }
-
-
-const getUserByEmail = async (objUser) =>{
+const verificarLogin = async (email, senha) =>{
     const url = `${BASE_URL}client/login`;
     const request = requestObj;
-    request.body = JSON.stringify(objUser);
+    const userDto = {
+        email: email,
+        password: senha
+    }
+    request.body = JSON.stringify(userDto);
 
     return fetch(url,request)
      .then(response => response.json());
 }
 
-export default getUserByEmail;
+const cadastrarUser = async (nome,senha,celular,email,address) => {
+    const request = requestObj;
+    const url = `${BASE_URL}client/register`
+    const dtoUser = {
+        email: email,
+        address: address,
+        cellphone: celular,
+        nome: nome,
+        password: senha
+    }
+
+    request.body = JSON.stringify(dtoUser);
+    return fetch (url, request);
+}
+
+export default {verificarLogin, cadastrarUser};

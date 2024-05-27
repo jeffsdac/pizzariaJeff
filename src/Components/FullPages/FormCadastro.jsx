@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
-
-// nome, endereço, celular, email, senha
+import UserService from "../../Services/UserService";
+import { useNavigate } from "react-router-dom";
 
 function FormCadastro(){
     const campoStyle = "w-3/4 bg-zinc-800 rounded-none border-b-white border-b focus:outline-none p-2 mb-3";
+
+    const [code, setCode] = useState(0);
 
     const [nome, setNome] = useState("");
     const [senha, setSenha] = useState("");
@@ -12,45 +13,74 @@ function FormCadastro(){
     const [email, setEmail] = useState("");
     const [endereco, setEndereco] = useState("");
 
-    
+    const navigate = useNavigate();
 
-    const campoDivide = "bg-zinc-800 rounded-none border-b-white border-b focus:outline-none p-2 mb-3 mx-2 w-1/3";
+    const inputStyle = "w-4/5 bg-zinc-800 rounded-none border-b-white border-b focus:outline-none px-2 mb-3";
+    const inputLabel = "w-4/5 main-font text-xl mt-6";
+
+    const casdastrarUsuario = async() => {
+        const resp = await UserService.cadastrarUser(nome, senha, celular, email, endereco);
+        if (resp.status === 201 ){
+            navigate("/pizzariaJeff");
+        }
+        
+}
     return(
         <div className="w-full min-h-screen flex justify-center items-center">
-        <form className="p-2 rounded-md shadow-md bg-zinc-800 sm:w-full m-2 lg:w-1/2 flex justify-center flex-wrap">
-            <h1 className="text-xl font-bold main-font py-4 text-center">FAÇA O SEU CADASTRO</h1>
+        <form className="p-2 rounded-md shadow-md bg-zinc-800 sm:w-11/12 lg:w-3/4 flex justify-center flex-wrap sm:mb-4">
+            <h1 className="text-xl font-bold main-font py-4 text-center w-full mb-5">FAÇA O SEU CADASTRO</h1>
 
-            <input type="text" placeholder="Digite seu nome" className={campoStyle}
-            value={nome}
-            onChange={input => setNome(input.target.value)}></input>
+            <div className="md:w-2/5 sm:w-full">
+                <div className="flex flex-wrap justify-end sm:justify-center">
+                    <label htmlFor="nome" className={inputLabel}>NOME</label>
+                    <input type="text" placeholder="Jose Alves" id="nome"
+                    value={nome}
+                    onChange={input => setNome(input.target.value)}
+                    className={inputStyle}></input>
+                </div>
 
-            <div className="w-full flex justify-center">
-                <input type="password" placeholder="Digite sua senha" className={campoDivide}
-                value={senha}
-                onChange={input => setSenha(input.target.value)}></input>
-
-                <input type="text" placeholder="Digite seu celular" className={campoDivide}
-                value={celular}
-                onChange={input => setCelular(input.target.value)}></input>
+                <div className="flex flex-wrap justify-end sm:justify-center">
+                    <label htmlFor="password" className={inputLabel}>SENHA</label>
+                    <input type="password" placeholder="**********"
+                    value={senha}
+                    onChange={input => setSenha(input.target.value)}
+                    id="password"
+                    className={inputStyle}></input>
+                </div>
+                <div className="flex flex-wrap justify-end sm:justify-center">
+                    <label htmlFor="celular" className={inputLabel}>CELULAR</label>
+                    <input type="text" placeholder="11 99999-9999"
+                    value={celular}
+                    onChange={input => setCelular(input.target.value)}
+                    id="celular"
+                    className={inputStyle}></input>
+                </div>
             </div>
 
-            <input type="email" placeholder="Digite seu email" className={campoStyle}
-            value={email}
-            onChange={input => setEmail(input.target.value)}></input>
 
-            <input type="text" placeholder="Digite seu endereço" className={campoStyle}
-            value={endereco}
-            onChange={input => setEndereco(input.target.value)}></input>
-
-            <button className="w-3/4 text-4xl hover:bg-slate-600 transition duration-200 pb-2 my-4">→</button>
-
-            <div className="w-full border">
-                <p>Nome: {nome}</p>
-                <p>Senha: {senha}</p>
-                <p>Celular: {celular}</p>
-                <p>Email: {email}</p>
-                <p>Endereço: {endereco}</p>
+            <div className="md:w-3/6 sm:w-full">
+                <div className="flex flex-wrap justify-end sm:justify-center">
+                    <label htmlFor="email" className={inputLabel}>EMAIL</label>
+                    <input type="email" placeholder="email@email.com.br"
+                    value={email}
+                    onChange={input => setEmail(input.target.value)}
+                    id="email"
+                    className={inputStyle}></input>
+                </div>
+                <div className="flex flex-wrap justify-end sm:justify-center">
+                    <label htmlFor="endereco" className={inputLabel}>ENDEREÇO</label>
+                    <input type="text" placeholder="Av. Paulista N23"
+                    value={endereco}
+                    onChange={input => setEndereco(input.target.value)}
+                    id="endereco"
+                    className={inputStyle}></input>
+                </div>
             </div>
+
+            <div className="w-3/4 text-4xl hover:bg-slate-600 transition duration-200 pb-2 my-4 text-center" role="button"
+            onClick={() => casdastrarUsuario()}>
+            →</div>
+
         </form>
         </div>
     )

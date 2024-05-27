@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import getUserByEmail from "../../../Services/UserService"
+import UserService from "../../../Services/UserService"
 import { UserContext } from "../../Context/UserContext";
 import Loading from "./Loading";
 
@@ -17,7 +17,7 @@ function FormGeral(){
 
     const [loading, setLoading] = useState(false);
 
-    const {toggle, setUserData} = useContext(UserContext);
+    const {toggle, setUserData, userData} = useContext(UserContext);
 
     const mostrarHeader = () =>{
         toggle();
@@ -26,21 +26,22 @@ function FormGeral(){
     const pegarUser = () => {
         setLoading(true);
         setTimeout(() => {
-            getUserByEmail(objUsuario)
+            UserService.verificarLogin(email, password)
                 .then(retorno => {
                     setUserData({
                         email: retorno.email,
                         id: retorno.id,
-                        endereco: retorno.endereco,
+                        endereco: retorno.endreco,
                         cel: retorno.cel,
                         role: retorno.role,
                         nome: retorno.nome
                     })
-
+                    console.log(retorno.endereco);
+                    console.log(retorno.role);
                     if (retorno.email === objUsuario.email) {
                         setIsLogado(true);
                         mostrarHeader();
-                        navigate("/pizzariaJeff/pedidos")
+                        navigate("/pizzariaJeff/checar")
                     }
                 });
         }, 100);
