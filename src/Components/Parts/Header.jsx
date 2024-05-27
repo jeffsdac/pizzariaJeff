@@ -3,6 +3,7 @@ import { NavLink} from "react-router-dom";
 import DropBoxHeader from "./DropBoxHeader";
 import DropBoxMenu from "../DropBoxMenu";
 import { UserContext } from "../Context/UserContext";
+import Loading from "./Geral/Loading";
 
 function Header (props){
 
@@ -32,9 +33,6 @@ function Header (props){
         <div className="w-full bg-lime-700 fixed top-0 z-20">
             <nav className="flex justify-center h-12 w-full items-center">
                 <ul className={user ? styleLg : inv}>
-                    <NavLink to="/pizzariaJeff"
-                    className={props.page == "/" ? active : noActive}
-                    onClick={()=> props.mudarPage("/")}>HOME</NavLink>
 
                     <NavLink to="/pizzariaJeff/pedidos"
                     className={props.page == "/pedidos" ? active : noActive}

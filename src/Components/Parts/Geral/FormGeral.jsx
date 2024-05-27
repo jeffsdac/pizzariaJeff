@@ -1,6 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import getUserByEmail from "../../../Services/UserService"
+import { UserContext } from "../../Context/UserContext";
+import Loading from "./Loading";
+
 
 function FormGeral(){
     const [email, setEmail] = useState("");
@@ -8,20 +11,42 @@ function FormGeral(){
     const objUsuario = { email:email, password:password};
 
 
+    const navigate = useNavigate();
+
     const [isLogado, setIsLogado] = useState(false);
-    const [returnData, setReturnData] = useState("");
-    const [userLogado, setUserLogado] = useState({});
+
+    const [loading, setLoading] = useState(false);
+
+    const {toggle, setUserData} = useContext(UserContext);
+
+    const mostrarHeader = () =>{
+        toggle();
+    }
 
     const pegarUser = () => {
-        getUserByEmail(objUsuario)
-         .then(retorno => {
-            setReturnData(retorno)
-            if(retorno.email == objUsuario.email){
-                setIsLogado(true);
-                setUserLogado(retorno);
-            };
-        })
+        setLoading(true);
+        setTimeout(() => {
+            getUserByEmail(objUsuario)
+                .then(retorno => {
+                    setUserData({
+                        email: retorno.email,
+                        id: retorno.id,
+                        endereco: retorno.endereco,
+                        cel: retorno.cel,
+                        role: retorno.role,
+                        nome: retorno.nome
+                    })
+
+                    if (retorno.email === objUsuario.email) {
+                        setIsLogado(true);
+                        mostrarHeader();
+                        navigate("/pizzariaJeff/pedidos")
+                    }
+                });
+        }, 100);
+
     }
+
     
     return(
         <form className="p-2 rounded-md shadow-md bg-zinc-800 sm:w-full m-2 lg:w-1/2">
@@ -61,10 +86,10 @@ function FormGeral(){
                 <Link className="text-sm hover:underline hover:cursor-pointer ml-20 mt-6" to="/pizzariaJeff/cadastro">Clique aqui para se cadastrar</Link>
                 <div className="w-full text-right p-1 flex justify-center my-6">
                     <div className="w-3/4 text-4xl hover:bg-slate-600 transition duration-200 pb-2 text-center cursor-pointer" 
-                    onClick={()=> pegarUser()}>→</div>
+                    onClick={pegarUser}>→</div>
                 </div>
                 {
-                    isLogado && <p>BEM VINDO EMAIL: {userLogado.email}</p>
+                    (loading && !(isLogado) && <Loading></Loading>)
                 }
             </form>
     )
