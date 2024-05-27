@@ -12,6 +12,8 @@ function FormCadastro(){
     const [email, setEmail] = useState("");
     const [endereco, setEndereco] = useState("");
 
+    
+
     const campoDivide = "bg-zinc-800 rounded-none border-b-white border-b focus:outline-none p-2 mb-3 mx-2 w-1/3";
     return(
         <div className="w-full min-h-screen flex justify-center items-center">
