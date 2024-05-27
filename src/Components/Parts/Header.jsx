@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink} from "react-router-dom";
 import DropBoxHeader from "./DropBoxHeader";
 import DropBoxMenu from "../DropBoxMenu";
+import { UserContext } from "../Context/UserContext";
 
 function Header (props){
 
@@ -11,6 +12,12 @@ function Header (props){
     const [dropAcitve, setDropActive] = useState(false);
 
     const [dropMenu, setDropMenu] = useState(false);
+
+    const {user, toggle} = useContext(UserContext);
+
+    const styleLg = "flex sm:invisible md:visible";
+    const styleSm = "md:invisible absolute top-2 left-7 h-10 w-10 cursor-pointer";
+    const inv = "invisible"
 
     const settar = (ativo) =>{
         setDropActive(ativo);
@@ -24,7 +31,7 @@ function Header (props){
 
         <div className="w-full bg-lime-700 fixed top-0 z-20">
             <nav className="flex justify-center h-12 w-full items-center">
-                <ul className="flex sm:invisible md:visible">
+                <ul className={user ? styleLg : inv}>
                     <NavLink to="/pizzariaJeff"
                     className={props.page == "/" ? active : noActive}
                     onClick={()=> props.mudarPage("/")}>HOME</NavLink>
@@ -40,7 +47,7 @@ function Header (props){
                     
                 </ul>
 
-                <div className="md:invisible absolute top-2 left-7 h-10 w-10 cursor-pointer"
+                <div className={user ? styleSm : inv}
                 onClick={()=> setDropMenu(true)}> 
                     <div className="w-full h-1 mb-2 bg-yellow-200"></div>
                     <div className="w-full h-1 mb-2 bg-yellow-200"></div>
